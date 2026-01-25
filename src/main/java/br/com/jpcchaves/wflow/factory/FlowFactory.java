@@ -7,7 +7,7 @@ public class FlowFactory {
     private FlowFactory() {
     }
 
-    public static <T> FlowBuilder<T> builder() {
+    public static <T> FlowBuilder<T> flow() {
         return new FlowBuilder<>();
     }
 }
