@@ -2,7 +2,6 @@ package br.com.jpcchaves.wflow.examples.banktransfer;
 
 import br.com.jpcchaves.wflow.examples.banktransfer.dto.BankTransferDTO;
 import br.com.jpcchaves.wflow.examples.banktransfer.service.BankTransferService;
-import br.com.jpcchaves.wflow.examples.banktransfer.validator.handler.ValidateTransferHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
