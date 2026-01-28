@@ -30,8 +30,10 @@ public class FlowExecutor<T> {
     public FlowResult<T> execute(T input) {
         FlowContext<T> context = FlowContext.of(input);
 
+        int currentStepIndex = 0;
         try {
             for (FlowStep<T> step : steps) {
+                currentStepIndex = currentStepIndex++;
 
                 // Verify if condition to execute step exists.
                 // If exists, submit context data to test condition
@@ -75,7 +77,7 @@ public class FlowExecutor<T> {
 
             return FlowResult.success(input, context);
         } catch (FlowExecutionException e) {
-            log.error("");
+            log.error("Error executing in step={} stepName={}", currentStepIndex, steps.get(currentStepIndex).getStepName(), e);
             return FlowResult.failure(input, context, e);
         } catch (Exception e) {
             log.error("Unexpected error while executing step action", e);
